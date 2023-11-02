@@ -1,16 +1,23 @@
 import "./App.css"
 
 import DeleteAllButton from "components/Buttons/DeleteAllButton"
-import ItemSubmitButton from "components/Buttons/ItemSubmitButton"
-import Header from "components/Header/Header"
+import ItemList from "components/List/ItemList"
+import ItemInputForm from "components/Input/ItemInputForm"
+import { Header } from "containers"
+import { useState } from "react"
 
 function App() {
+    const [items, setItems] = useState([])
+    const addItem = (product, expense) => {
+        setItems([...items, { product, expense }])
+    }
+
     return (
         <div>
-            <Header></Header>
-
+            <Header />
+            <ItemInputForm onAddItem={addItem} />
             <DeleteAllButton />
-            <ItemSubmitButton />
+            <ItemList items={items} />
         </div>
     )
 }

@@ -5,7 +5,7 @@ import SendIcon from "@mui/icons-material/Send"
 const ItemSubmitButton = () => {
     return (
         <div>
-            <Button variant="contained" endIcon={<SendIcon />}>
+            <Button variant="contained" endIcon={<SendIcon />} type="submit">
                 SUBMIT
             </Button>
         </div>

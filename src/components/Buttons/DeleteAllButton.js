@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete"
 
 const DeleteAllButton = () => {
     return (
-        <Button variant="outlined" color="error" startIcon={<DeleteIcon />}>
+        <Button variant="outlined" color="error" endIcon={<DeleteIcon />}>
             Delete
         </Button>
     )
