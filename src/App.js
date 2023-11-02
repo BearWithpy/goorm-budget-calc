@@ -24,6 +24,7 @@ function App() {
             setShowMessage(true)
             const messageTimeout = setTimeout(() => {
                 hideMessage()
+                setMsg("none")
             }, 1500)
             return () => clearTimeout(messageTimeout)
         }

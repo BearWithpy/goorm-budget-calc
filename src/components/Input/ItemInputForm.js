@@ -18,6 +18,8 @@ const ItemInputForm = ({
 
     useEffect(() => {
         if (mode === "edit" && editingItem) {
+            productInputRef.current.value = editingItem.product
+            expenseInputRef.current.value = editingItem.expense
             setEditedProduct(editingItem.product)
             setEditedExpense(editingItem.expense)
         }
@@ -32,6 +34,7 @@ const ItemInputForm = ({
             onAddItem(newProduct, expense)
         } else if (mode === "edit") {
             onEditItem(editingItem.id, newProduct, expense)
+
             onToggle("edit")
         }
 
@@ -41,8 +44,14 @@ const ItemInputForm = ({
 
     return (
         <form onSubmit={handleSubmit}>
-            <ProductInput productInputRef={productInputRef} />
-            <ExpenseInput expenseInputRef={expenseInputRef} />
+            <ProductInput
+                productInputRef={productInputRef}
+                defaultValue={editedProduct}
+            />
+            <ExpenseInput
+                expenseInputRef={expenseInputRef}
+                defaultValue={editedExpense}
+            />
             {mode === "submit" ? <ItemSubmitButton /> : <ItemEditButton />}
         </form>
     )
