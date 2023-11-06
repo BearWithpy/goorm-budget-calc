@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 import CreateBox from "components/MessageBox/CreateBox"
 import DeleteBox from "components/MessageBox/DeleteBox"
 import EditBox from "components/MessageBox/EditBox"
+import DeleteAllBox from "components/MessageBox/DeleteAllBox"
 
 function App() {
     const [mode, setMode] = useState("submit")
@@ -88,7 +89,7 @@ function App() {
                     {msg === "delete" && <DeleteBox />}
 
                     {msg === "edit" && <EditBox />}
-                    {/* msg === "delete all" && <DeleteAllBox />} */}
+                    {msg === "delete all" && <DeleteAllBox />}
                 </>
             )}
             <Header />
