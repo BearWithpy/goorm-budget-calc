@@ -25,7 +25,6 @@ function App() {
     useEffect(() => {
         if (msg !== "none") {
             setShowMessage(true)
-            setTotal(calcTotal())
             const messageTimeout = setTimeout(() => {
                 hideMessage()
                 setMsg()
@@ -33,6 +32,14 @@ function App() {
             return () => clearTimeout(messageTimeout)
         }
     }, [msg])
+
+    useEffect(() => {
+        const newTotal = items.reduce((sum, item) => {
+            return sum + Number(item.expense)
+        }, 0)
+
+        setTotal(newTotal)
+    }, [items])
 
     const addItem = (product, expense) => {
         const newItem = { id: getId(), product, expense }
@@ -73,21 +80,8 @@ function App() {
         setMsg("delete")
     }
 
-    const calcTotal = () => {
-        const total = items.reduce((sum, item) => {
-            return sum + Number(item.expense) // expense를 숫자로 변환 후 합산
-        }, 0)
-        return total
-    }
-
     return (
         <div>
-            {/* <div>
-                <h2 className="text-blue-500 text-xl font-bold">
-                    Hello, React!
-                </h2>
-                <p className="text-lg font-medium">Hello, Typescript!</p>
-            </div> */}
             {showMessage && (
                 <>
                     {msg === "create" && <CreateBox />}
@@ -113,7 +107,7 @@ function App() {
                     onEdit={editItem}
                 />
             </div>
-            <div className="text-2xl font-bold text-right pr-6">
+            <div className="text-4xl font-bold text-right pr-6">
                 Total: {total}
             </div>
         </div>

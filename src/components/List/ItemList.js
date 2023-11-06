@@ -13,16 +13,22 @@ const ItemList = ({ items, onDeleteAll, onDelete, onEdit }) => {
                 {items.map((item) => (
                     <li
                         key={item.id}
-                        className="mb-2 flex justify-between border-solid border-2 border-gray-300 rounded"
+                        className="mb-2 flex items-center border-solid border-2 border-gray-300 rounded"
                     >
-                        <Item product={item.product} />
-                        <Expense expense={item.expense} />
-                        <div className="button-group">
-                            <DeleteOneButton
-                                onDelete={onDelete}
-                                target={item}
-                            />
-                            <EditButton onEdit={onEdit} target={item} />
+                        <div className="flex-1 px-4">
+                            <Item product={item.product} />
+                        </div>
+                        <div className="flex-1 px-4">
+                            <Expense expense={item.expense} />
+                        </div>
+                        <div className="px-4">
+                            <div className="button-group flex-shrink-0">
+                                <DeleteOneButton
+                                    onDelete={onDelete}
+                                    target={item}
+                                />
+                                <EditButton onEdit={onEdit} target={item} />
+                            </div>
                         </div>
                     </li>
                 ))}
