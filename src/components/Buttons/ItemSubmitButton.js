@@ -5,7 +5,12 @@ import SendIcon from "@mui/icons-material/Send"
 const ItemSubmitButton = () => {
     return (
         <div>
-            <Button variant="contained" endIcon={<SendIcon />} type="submit">
+            <Button
+                variant="contained"
+                className="bg-indigo-500 hover:bg-indigo-700"
+                endIcon={<SendIcon />}
+                type="submit"
+            >
                 SUBMIT
             </Button>
         </div>

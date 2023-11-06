@@ -7,6 +7,7 @@ const DeleteAllButton = ({ onDeleteAll }) => {
         <Button
             variant="outlined"
             color="error"
+            className="mt-5"
             endIcon={<DeleteIcon />}
             onClick={onDeleteAll}
         >

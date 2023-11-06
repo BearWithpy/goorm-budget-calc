@@ -43,17 +43,28 @@ const ItemInputForm = ({
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ProductInput
-                productInputRef={productInputRef}
-                defaultValue={editedProduct}
-            />
-            <ExpenseInput
-                expenseInputRef={expenseInputRef}
-                defaultValue={editedExpense}
-            />
-            {mode === "submit" ? <ItemSubmitButton /> : <ItemEditButton />}
-        </form>
+        <div>
+            <form
+                onSubmit={handleSubmit}
+                className="mb-2 grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
+                <ProductInput
+                    productInputRef={productInputRef}
+                    defaultValue={editedProduct}
+                />
+                <ExpenseInput
+                    expenseInputRef={expenseInputRef}
+                    defaultValue={editedExpense}
+                />
+                <div className="mb-3">
+                    {mode === "submit" ? (
+                        <ItemSubmitButton />
+                    ) : (
+                        <ItemEditButton />
+                    )}
+                </div>
+            </form>
+        </div>
     )
 }
 
