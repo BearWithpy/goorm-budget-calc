@@ -1,5 +1,4 @@
-import ItemInputForm from "components/Input/ItemInputForm"
-import ItemList from "components/List/ItemList"
+import { ItemInputForm, ItemList } from "components"
 
 const Main = ({
     items,

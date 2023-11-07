@@ -2,14 +2,15 @@
 import "./main.css"
 
 import { v4 as getId } from "uuid"
-import { Header } from "containers"
+import { Header, Main } from "containers"
 import { useEffect, useState } from "react"
-import CreateBox from "components/MessageBox/CreateBox"
-import DeleteBox from "components/MessageBox/DeleteBox"
-import EditBox from "components/MessageBox/EditBox"
-import DeleteAllBox from "components/MessageBox/DeleteAllBox"
-import TotalBox from "components/MessageBox/TotalBox"
-import Main from "containers/Body/Main"
+import {
+    CreateBox,
+    DeleteAllBox,
+    DeleteBox,
+    EditBox,
+    TotalBox,
+} from "components"
 
 function App() {
     const [mode, setMode] = useState("submit")
