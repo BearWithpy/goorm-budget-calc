@@ -1,7 +1,6 @@
 // import "./App.css"
 import "./main.css"
-import ItemList from "components/List/ItemList"
-import ItemInputForm from "components/Input/ItemInputForm"
+
 import { v4 as getId } from "uuid"
 import { Header } from "containers"
 import { useEffect, useState } from "react"
@@ -9,6 +8,8 @@ import CreateBox from "components/MessageBox/CreateBox"
 import DeleteBox from "components/MessageBox/DeleteBox"
 import EditBox from "components/MessageBox/EditBox"
 import DeleteAllBox from "components/MessageBox/DeleteAllBox"
+import TotalBox from "components/MessageBox/TotalBox"
+import Main from "containers/Body/Main"
 
 function App() {
     const [mode, setMode] = useState("submit")
@@ -16,7 +17,6 @@ function App() {
     const [editingItem, setEditingItem] = useState(null)
     const [msg, setMsg] = useState("none")
     const [showMessage, setShowMessage] = useState(false)
-
     const [total, setTotal] = useState(0)
 
     const hideMessage = () => {
@@ -74,7 +74,6 @@ function App() {
         setMode("submit")
         setMsg("edit")
     }
-
     const deleteOneItem = (item) => {
         const newItems = items.filter((i) => i.id !== item.id)
         setItems(newItems)
@@ -93,24 +92,18 @@ function App() {
                 </>
             )}
             <Header />
-            <div className="m-6 p-5 border-solid border-2 border-gray-300 rounded">
-                <ItemInputForm
-                    onAddItem={addItem}
-                    onToggle={toggleMode}
-                    mode={mode}
-                    editingItem={mode === "edit" ? editingItem : {}}
-                    onEditItem={onEditItem}
-                />
-                <ItemList
-                    items={items}
-                    onDelete={deleteOneItem}
-                    onDeleteAll={deleteAllItems}
-                    onEdit={editItem}
-                />
-            </div>
-            <div className="text-4xl font-bold text-right pr-6">
-                Total: {total}
-            </div>
+            <Main
+                items={items}
+                onAddItem={addItem}
+                onEditItem={onEditItem}
+                onDelete={deleteOneItem}
+                onDeleteAll={deleteAllItems}
+                onEdit={editItem}
+                toggleMode={toggleMode}
+                mode={mode}
+                editingItem={editingItem}
+            />
+            <TotalBox total={total} />
         </div>
     )
 }
