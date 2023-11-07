@@ -11,4 +11,4 @@
 
 ### 비고
 
--   EMPTY
+-   [배포 페이지](https://bearwithpy.github.io/goorm-budget-calc/)
