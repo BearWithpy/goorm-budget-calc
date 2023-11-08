@@ -4,6 +4,7 @@ import DeleteOneButton from "components/Buttons/DeleteOneButton"
 import EditButton from "components/Buttons/EditButton"
 import Item from "components/List/Item"
 import Expense from "components/List/Expense"
+import "./Itemlist.css"
 
 const ItemList = ({ items, onDeleteAll, onDelete, onEdit }) => {
     return (
@@ -13,7 +14,7 @@ const ItemList = ({ items, onDeleteAll, onDelete, onEdit }) => {
                 {items.map((item) => (
                     <li
                         key={item.id}
-                        className="mb-2 flex items-center border-solid border-2 border-gray-300 rounded"
+                        className="flexComp mb-2 flex items-center border-solid border-2 border-gray-300 rounded"
                     >
                         <div className="flex-1 px-4">
                             <Item product={item.product} />
