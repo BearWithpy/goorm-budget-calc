@@ -20,7 +20,7 @@ const ItemList = ({ items, onDeleteAll, onDelete, onEdit }) => {
                             <Item product={item.product} />
                         </div>
                         <div className="flex-1 px-4">
-                            <Expense expense={item.expense} />
+                            <Expense expense={item.expense.toLocaleString()} />
                         </div>
                         <div className="px-4">
                             <div className="button-group flex-shrink-0">
