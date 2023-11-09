@@ -12,3 +12,4 @@
 ### 비고
 
 -   [배포 페이지](https://bearwithpy.github.io/goorm-budget-calc/)
+-   타입스크립트로 리팩토링 시도중....(다른 repo에서....)
